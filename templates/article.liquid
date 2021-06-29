@@ -41,22 +41,10 @@
 
   {% endpaginate %}
 
-  <div>
+  <div class="my-5">
     {% form 'new_comment', article %}
 
-      {% for error in form.errors %}
-      <div class="alert alert-danger">
-        {% if error == 'form' %}
-          {{form.errors.messages[error] }}
-
-        {% else %}
-        {{forms.errors.translated_fields[error]}}  {{form.errors.messages[error] }}
-
-        {% endif %}
-      </div>
-     
-        
-      {% endfor %}
+        {% include 'snippet', form: form %}
 
       <div class="my-5 p-2 bg-light">
         <h3 class="my-4">Comments your thoughts below</h3>
